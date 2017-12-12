@@ -9,7 +9,7 @@
      <!-- 配置环境参数,指定配置文件的位置 -->
     <context-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>classpath:application*.xml</param-value>
+      <param-value>classpath:application-*.xml</param-value>
     </context-param>
     <!-- 配置Spring的ContextLoaderListener监听器,初始化Spring容器 -->
     <listener>
