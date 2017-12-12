@@ -8,12 +8,7 @@
   <packaging>war</packaging>
   
   <dependencies>
-  		<dependency>
-		    <groupId>org.apache.maven.plugins</groupId>
-		    <artifactId>maven-resources-plugin</artifactId>
-		    <version>2.4.3</version>
-		</dependency>
-  
+  		 
         <!-- spring与mybatis整合所需jar -->
         <dependency>
             <groupId>org.mybatis</groupId>
@@ -25,7 +20,11 @@
             <artifactId>mybatis</artifactId>
             <version>3.4.1</version>
         </dependency>
-
+		<dependency>
+		    <groupId>c3p0</groupId>
+		    <artifactId>c3p0</artifactId>
+		    <version>0.9.1.2</version>
+		</dependency>
 
         <!-- Convention插件 实现struts的零配置 零配置并不是没有配置，而是通过约定大于配置的方式，大量通过约定来调度页面的跳转而使得配置大大减少 
             默认所有的结果页面都存储在WEB-INF/content下 -->
@@ -81,6 +80,11 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
+            <version>4.1.9.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
             <version>4.1.9.RELEASE</version>
         </dependency>
 
@@ -161,38 +165,4 @@
       </plugin>
     </plugins>
   </build>
-  <dependencyManagement>
-  	<dependencies>
-  		<dependency>
-  			<groupId>org.apache.maven.plugins</groupId>
-  			<artifactId>maven-resources-plugin</artifactId>
-  			<version>2.4.3</version>
-  		</dependency>
-  		<dependency>
-  			<groupId>org.mybatis</groupId>
-  			<artifactId>mybatis</artifactId>
-  			<version>3.4.5</version>
-  		</dependency>
-  		<dependency>
-  			<groupId>org.springframework</groupId>
-  			<artifactId>spring-context</artifactId>
-  			<version>4.1.9.RELEASE</version>
-  		</dependency>
-  		<dependency>
-  			<groupId>org.springframework</groupId>
-  			<artifactId>spring-web</artifactId>
-  			<version>4.1.9.RELEASE</version>
-  		</dependency>
-  		<dependency>
-  			<groupId>mysql</groupId>
-  			<artifactId>mysql-connector-java</artifactId>
-  			<version>5.1.38</version>
-  		</dependency>
-  		<dependency>
-  			<groupId>org.apache.struts</groupId>
-  			<artifactId>struts2-core</artifactId>
-  			<version>2.5.14</version>
-  		</dependency>
-  	</dependencies>
-  </dependencyManagement>
 </project>
