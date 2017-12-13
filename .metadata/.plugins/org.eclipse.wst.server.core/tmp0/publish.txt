@@ -1,3 +1,4 @@
 #Tomcat publish data
-#Tue Dec 12 18:05:56 CST 2017
-org.eclipse.jst.jee.server\:TEST=D\:\\Program Files\\tomcat9.0\\apache-tomcat-9.0.2\\webapps\\TEST
+#Wed Dec 13 16:58:59 CST 2017
+org.eclipse.jst.jee.server\:/binary\:D\:\\repository\\org\\springframework\\spring-web\\4.1.9.RELEASE\\spring-web-4.1.9.RELEASE.jar=D\:\\Program Files\\tomcat9.0\\apache-tomcat-9.0.2\\webapps\\SERVER_3D_SSH\\WEB-INF\\lib\\spring-web-4.1.9.RELEASE.jar
+org.eclipse.jst.jee.server\:SERVER_3D_SSH=D\:\\Program Files\\tomcat9.0\\apache-tomcat-9.0.2\\webapps\\SERVER_3D_SSH

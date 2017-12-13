@@ -1,172 +1,152 @@
 package com.door.bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Customer {
-	private String Customer_ID;
-	private String Cert_ID;
-	private String UserName;
-	private String UserName_Bak;
-	private String Password;
-	private String Role;
-	private String TEL1;
-	private String TEL2;
-	private String Home_Address;
-	private String Common_Address;
-	private String Work_Type;
-	private String Work_Unit;
-	private String Remark;
-	private String Stat;
-	private Date Load_Date;
+public class Customer implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private String customer_ID;
+	private String cert_ID;
+	private String userName;
+	private String custName;
+	private String password;
+	private String role;
+	private String tel;
+	private String home_Address;
+	private String work_Type;
+	private String remark;
+	private String stat;
+	private Date load_Date;
 	
 	public Customer() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 
-	public Customer(String customer_ID, String cert_ID, String userName, String userName_Bak, String password,
-			String role, String tEL1, String tEL2, String home_Address, String common_Address, String work_Type,
-			String work_Unit, String remark, String stat, Date load_Date) {
+	public Customer(String customer_ID, String cert_ID, String userName, String custName, String password, String role,
+			String tel, String home_Address, String work_Type, String remark, String stat, Date load_Date) {
 		super();
-		Customer_ID = customer_ID;
-		Cert_ID = cert_ID;
-		UserName = userName;
-		UserName_Bak = userName_Bak;
-		Password = password;
-		Role = role;
-		TEL1 = tEL1;
-		TEL2 = tEL2;
-		Home_Address = home_Address;
-		Common_Address = common_Address;
-		Work_Type = work_Type;
-		Work_Unit = work_Unit;
-		Remark = remark;
-		Stat = stat;
-		Load_Date = load_Date;
+		this.customer_ID = customer_ID;
+		this.cert_ID = cert_ID;
+		this.userName = userName;
+		this.custName = custName;
+		this.password = password;
+		this.role = role;
+		this.tel = tel;
+		this.home_Address = home_Address;
+		this.work_Type = work_Type;
+		this.remark = remark;
+		this.stat = stat;
+		this.load_Date = load_Date;
 	}
 
 
 
 	public String getCustomer_ID() {
-		return Customer_ID;
+		return customer_ID;
 	}
 
 	public void setCustomer_ID(String customer_ID) {
-		Customer_ID = customer_ID;
+		this.customer_ID = customer_ID;
 	}
 
 	public String getCert_ID() {
-		return Cert_ID;
+		return cert_ID;
 	}
 
 	public void setCert_ID(String cert_ID) {
-		Cert_ID = cert_ID;
+		this.cert_ID = cert_ID;
 	}
 
 	public String getUserName() {
-		return UserName;
+		return userName;
 	}
 
 	public void setUserName(String userName) {
-		UserName = userName;
+		this.userName = userName;
 	}
 
-	public String getUserName_Bak() {
-		return UserName_Bak;
+	public String getCustName() {
+		return custName;
 	}
 
-	public void setUserName_Bak(String userName_Bak) {
-		UserName_Bak = userName_Bak;
+	public void setCustName(String custName) {
+		this.custName = custName;
 	}
 
 	public String getPassword() {
-		return Password;
+		return password;
 	}
 
 	public void setPassword(String password) {
-		Password = password;
+		this.password = password;
 	}
 
 	public String getRole() {
-		return Role;
+		return role;
 	}
 
 	public void setRole(String role) {
-		Role = role;
+		this.role = role;
 	}
 
-	public String getTEL1() {
-		return TEL1;
+	public String getTel() {
+		return tel;
 	}
 
-	public void setTEL1(String tEL1) {
-		TEL1 = tEL1;
-	}
-
-	public String getTEL2() {
-		return TEL2;
-	}
-
-	public void setTEL2(String tEL2) {
-		TEL2 = tEL2;
+	public void setTel(String tel) {
+		this.tel = tel;
 	}
 
 	public String getHome_Address() {
-		return Home_Address;
+		return home_Address;
 	}
 
 	public void setHome_Address(String home_Address) {
-		Home_Address = home_Address;
-	}
-
-	public String getCommon_Address() {
-		return Common_Address;
-	}
-
-	public void setCommon_Address(String common_Address) {
-		Common_Address = common_Address;
+		this.home_Address = home_Address;
 	}
 
 	public String getWork_Type() {
-		return Work_Type;
+		return work_Type;
 	}
 
 	public void setWork_Type(String work_Type) {
-		Work_Type = work_Type;
-	}
-
-	public String getWork_Unit() {
-		return Work_Unit;
-	}
-
-	public void setWork_Unit(String work_Unit) {
-		Work_Unit = work_Unit;
+		this.work_Type = work_Type;
 	}
 
 	public String getRemark() {
-		return Remark;
+		return remark;
 	}
 
 	public void setRemark(String remark) {
-		Remark = remark;
+		this.remark = remark;
 	}
 
 	public String getStat() {
-		return Stat;
+		return stat;
 	}
 
 	public void setStat(String stat) {
-		Stat = stat;
+		this.stat = stat;
 	}
 
 	public Date getLoad_Date() {
-		return Load_Date;
+		return load_Date;
 	}
 
 	public void setLoad_Date(Date load_Date) {
-		Load_Date = load_Date;
+		this.load_Date = load_Date;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Customer [customer_ID=" + customer_ID + ", cert_ID=" + cert_ID + ", userName=" + userName
+				+ ", custName=" + custName + ", password=" + password + ", role=" + role + ", tel=" + tel
+				+ ", home_Address=" + home_Address + ", work_Type=" + work_Type + ", remark=" + remark + ", stat="
+				+ stat + ", load_Date=" + load_Date + "]";
+	}
+		
 }

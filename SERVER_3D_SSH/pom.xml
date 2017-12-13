@@ -46,7 +46,11 @@
             <artifactId>struts2-spring-plugin</artifactId>
             <version>2.3.16.2</version>
         </dependency>
-
+		<dependency>
+		    <groupId>jstl</groupId>
+		    <artifactId>jstl</artifactId>
+		    <version>1.2</version>
+		</dependency>
 
 
         <!-- Spring-Context的依赖注入功能 spring-context实现了Spring注入容器并且依赖：spring-core,spring-expression,spring-aop以及spring-beans 

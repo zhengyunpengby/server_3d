@@ -2,90 +2,126 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
       
     <mapper namespace="com.door.dao.CustomerDao">  
-          
-        <!--注意sql语句没有分号结尾  -->  
-          
+
         <insert id="addCustomer" parameterType="Customer">  
             insert into customer(
-            	Customer_ID
-            	,Cert_ID
-            	,UserName
-            	,UserName_Bak
-            	,Password
-            	,Role
-            	,TEL1
-            	,TEL2
-            	,Home_Address
-            	,Common_Address
-            	,Work_Type
-            	,Work_Unit
-            	,Remark
-            	,Stat
-            	,Load_Date
+            	customer_ID
+            	,cert_ID
+            	,userName
+            	,custName
+            	,password
+            	,role
+            	,tel
+            	,home_Address
+            	,work_Type
+            	,remark
+            	,stat
+            	,load_Date
             ) values(
-            	#{Customer_ID}
-            	,#{Cert_ID}
-            	,#{UserName}
-            	,#{UserName_Bak}
-            	,#{Password}
-            	,#{Role}
-            	,#{TEL1}
-            	,#{TEL2}
-            	,#{Home_Address}
-            	,#{Common_Address}
-            	,#{Work_Type}
-            	,#{Work_Unit}
-            	,#{Remark}
-            	,#{Stat}
-            	,#{Load_Date}
+            	#{customer_ID}
+            	,#{cert_ID}
+            	,#{userName}
+            	,#{custName}
+            	,#{password}
+            	,#{role}
+            	,#{tel}
+            	,#{home_Address}
+            	,#{work_Type}
+            	,#{remark}
+            	,#{stat}
+            	,#{load_Date}
             )  
         </insert>  
           
-        <select id="getCustomer"  parameterType="Customer" resultType="Customer">  
+        <select id="getCustomer"  resultType="Customer">  
             select 
-            	Customer_ID
-            	,Cert_ID
-            	,UserName
-            	,UserName_Bak
-            	,Password
-            	,Role
-            	,TEL1
-            	,TEL2
-            	,Home_Address
-            	,Common_Address
-            	,Work_Type
-            	,Work_Unit
-            	,Remark
-            	,Stat
-            	,Load_Date
+            	customer_ID
+            	,cert_ID
+            	,userName
+            	,custName
+            	,password
+            	,role
+            	,tel
+            	,home_Address
+            	,work_Type
+            	,remark
+            	,stat
+            	,load_Date
             from customer 
-            where 
-            <if test="Customer_ID!=null and Customer_ID!=''">  
-        		Customer_ID = #{Customer_ID}  
-    		</if>  
-    		<if test="TEL1!=null and TEL1!=''">  
-        		TEL1=#{TEL1} 
-            	and Password=#{Password}
-    		</if> 
+            where customer_ID = #{customer_ID}  
+            and stat = 'N'
+        </select>  
+        
+        <select id="getCustomerByUserName"  parameterType="Map" resultType="Customer">  
+            select 
+            	customer_ID
+            	,cert_ID
+            	,userName
+            	,custName
+            	,password
+            	,role
+            	,tel
+            	,home_Address
+            	,work_Type
+            	,remark
+            	,stat
+            	,load_Date
+            from customer 
+            where userName = #{userName}  
+            and password = #{password}
+            and stat = 'N'
+        </select>  
+        
+         <select id="getCustomerByTel"  parameterType="Map" resultType="Customer">  
+            select 
+            	customer_ID
+            	,cert_ID
+            	,userName
+            	,custName
+            	,password
+            	,role
+            	,tel
+            	,home_Address
+            	,work_Type
+            	,remark
+            	,stat
+            	,load_Date
+            from customer 
+            where tel = #{tel}  
+            and password = #{password}
+            and stat = 'N'
+        </select>  
+        
+        <select id="getTelCustomer" resultType="Customer">  
+            select 
+            	count(*)
+            from customer 
+            where tel = #{tel}  
+            and stat = 'N'
+        </select>  
+        
+        <select id="getUserNameCustomer" resultType="Customer">  
+            select 
+            	count(*)
+            from customer 
+            where userName = #{userName}  
+            and stat = 'N'
         </select>  
          
         <update id="updateCustomer" parameterType="Customer">
         	update customer
        		set         			
-            	Cert_ID = ${Cert_ID}
-            	,UserName = ${UserName}
-            	,UserName_Bak = ${UserName_Bak}
-            	,Password = ${Password}
-            	,Role = ${Role}
-            	,TEL1 = ${TEL1}
-            	,TEL2 = ${TEL2}
-            	,Home_Address = ${Home_Address}
-            	,Common_Address = ${Common_Address}
-            	,Work_Type = ${Work_Type}
-            	,Work_Unit = ${Work_Unit}
-            	,Remark = ${Remark}
-            	,Stat = ${Stat}
-            	,Load_Date = ${Load_Date}
-	          where Customer_ID = ${Customer_ID}
+            	cert_ID = ${Cert_ID}
+            	,userName = ${userName}
+            	,custName = ${custName}
+            	,password = ${password}
+            	,role = ${role}
+            	,tel = ${tel}
+            	,home_Address = ${home_Address}
+            	,remark = ${remark}
+            	,work_Type = ${work_Type}
+            	,stat = ${stat}
+            	,load_Date = ${load_Date}
+	          where customer_ID = ${customer_ID}
         </update>
     </mapper>  

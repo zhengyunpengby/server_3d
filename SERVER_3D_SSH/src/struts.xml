@@ -4,13 +4,29 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-	<package name="default" extends="struts-default">
-	
-		<action name="login" class="loginAction" method="login">
-			<result name="success">/index.jsp</result>
-			<result name="error">/error.jsp</result>
-		</action>
-		
-	</package>
+	<constant name="struts.devMode" value="true" />
 	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	
+	<package name="default" namespace="/" extends="struts-default">	
+		<action name="login" class="com.door.action.LoginAction" method="login">
+			<result name="success" type="redirect">index.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		<action name="regist" class="com.door.action.LoginAction" method="regist">
+			<result name="success" type="redirect">index.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		<action name="verifyInfoTel" class="com.door.action.LoginAction" method="verifyInfoTel">
+			<result name="success" type="redirect">index.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		<action name="verifyInfoUserName" class="com.door.action.LoginAction" method="verifyInfoUserName">
+			<result name="success" type="redirect">index.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		<action name="logout" class="com.door.action.LoginAction" method="logout">
+			<result name="success" type="redirect">index.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+	</package>
 </struts>
