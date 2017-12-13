@@ -11,12 +11,22 @@
 <meta http-equiv="Expires" content="0">
 <link rel="stylesheet" href="css/comment.css" type="text/css" />
 <link rel="stylesheet" href="css/index.css" type="text/css" />
+<script type="text/javascript">
+    function changeFrameHeight(){
+        var ifm= document.getElementById("myiframe"); 
+        ifm.height=ifm.contentWindow.document.body.scrollHeight;
+    }
+
+    window.onresize=function(){  
+         changeFrameHeight();
+    } 
+</script>
 <title>3D木门</title>
 </head>
 
 <body>
-	<div id="header" class="gradient">
-		<span>3D木门</span>		
+	<div id="header" >
+		<span id="title" class="">3D木门</span>		
 		<s:if test="#session.customer==null">
 			<div id="load" class="">
 				<ul id="load-ul" class="">
@@ -30,7 +40,7 @@
 			</div>
 		</s:if>
 		<s:else>
-			<div id="load" class="">
+			<div id="load" class="test">
 				<ul id="load-ul" class="">
 					<li class="load-cl">
 						<a href="logout.action" title="退出">退出</a>
@@ -42,15 +52,22 @@
 			</div>
 		</s:else>
 	</div>
-	<div id="conter" class="test">
-		<div id="lefter" class="test">lefter</div>
-		<div id="content" class="test">content</div>
-		<div id="right" class="test">right
-		</div>
+	<div id="menuer" class="">
+		<ul>
+			<li id="menu-selected" class="menuer-ul-li"><a href="">首页</a></li>
+			<li class="menuer-ul-li"><a href="">产品展示</a></li>
+			<li class="menuer-ul-li"><a href="">装潢案例</a></li>
+			<li class="menuer-ul-li"><a href="">拓展业务</a></li>
+			<li class="menuer-ul-li"><a href="">联系我们</a></li>
+		</ul>
 	</div>
-	<div id="fooder" class="test">
-		foot
+	<div id="conter" class="">
+		<iframe  
+			id="myiframe" scrolling="no" onload="changeFrameHeight()" frameborder="0" width="100%"
+			src="cust-jsp/main.jsp"></iframe>
 	</div>
-	<s:debug/>
+	<div id="fooder" class="gradient">
+		版权所有 © 2017 淮滨3D木门
+	</div>
 </body>
 </html>

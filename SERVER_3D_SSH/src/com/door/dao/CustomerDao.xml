@@ -92,7 +92,7 @@
             and stat = 'N'
         </select>  
         
-        <select id="getTelCustomer" resultType="Customer">  
+        <select id="getTelCustomer"  resultType="java.lang.Integer">  
             select 
             	count(*)
             from customer 
@@ -100,7 +100,7 @@
             and stat = 'N'
         </select>  
         
-        <select id="getUserNameCustomer" resultType="Customer">  
+        <select id="getUserNameCustomer"  resultType="java.lang.Integer">  
             select 
             	count(*)
             from customer 

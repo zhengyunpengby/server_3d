@@ -6,7 +6,7 @@
 
 body { 
 	text-align: left; 
-	font-family:"微软雅黑", arial;
+	font-family:"微软雅黑";
 	margin:0 auto 0 auto; 
 	padding:0; 
 	background: #FFF; 
@@ -53,4 +53,17 @@ a:hover {
 
 a:active {
 	color: #bc2931;
+}
+
+.test{
+	border: 1px red solid;
+	background-color: #EABD82;
+}
+
+.blur{
+	filter:blur(1px);
+	-webkit-filter:blur(1px);
+	-moz-filter:blur(1px);
+	-ms-filter:blur(1px);
+	-o-filter:blur(1px);
 }

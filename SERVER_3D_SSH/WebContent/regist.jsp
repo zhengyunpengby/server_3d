@@ -21,8 +21,8 @@
 			</ul>
 
 			<ul>
-				<li><label>登录名：</label><input name="customer.userName" type="text" maxlength="14"/></li>
-				<li><label>手机号：</label><input name="customer.tel" type="text" maxlength="14"/></li>
+				<li><label>登录名：</label><input name="customer.userName" type="text" maxlength="14"/><a href="verifyInfoUserName.action?customer.userName=123">校验</a></li></li>
+				<li><label>手机号：</label><input name="customer.tel" type="text" maxlength="14"/><a href="verifyInfoTel.action?customer.tel=123">校验</a></li>
 				<li><label>密码：</label><input name="customer.password" type="password" maxlength="20"/></li>
 				<li><label>确认密码：</label><input name="" type="password" maxlength="20"/></li>
 			</ul>

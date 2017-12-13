@@ -62,6 +62,7 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public int verifyInfoTel(String tel) {	
 		Integer i = customerDao.getTelCustomer(tel);
+		
 		if(i==null){
 			return 0;
 		}
@@ -72,6 +73,7 @@ public class CustomerServiceImpl implements CustomerService {
 	public int verifyInfoUserName(String userName) {
 		// TODO Auto-generated method stub
 		Integer i = customerDao.getUserNameCustomer(userName);
+		
 		if(i==null){
 			return 0;
 		}

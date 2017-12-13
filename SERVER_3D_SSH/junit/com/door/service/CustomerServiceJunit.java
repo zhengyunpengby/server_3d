@@ -36,8 +36,8 @@ public class CustomerServiceJunit {
 	
 	@Test
 	public void verifyInfo(){
-		System.out.println(customerService.verifyInfoTel("1234"));
-		System.out.println(customerService.verifyInfoUserName("1234"));
+		System.out.println(customerService.verifyInfoTel("123"));
+		System.out.println(customerService.verifyInfoUserName("123"));
 	}
 
 	public Customer getCustomer() {

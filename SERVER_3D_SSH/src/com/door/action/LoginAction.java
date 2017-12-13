@@ -1,5 +1,7 @@
 package com.door.action;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import com.door.bean.Customer;
 import com.door.service.CustomerService;
 import com.door.utils.CommonUtil;
+import com.google.gson.Gson;
 import com.opensymphony.xwork2.ActionSupport;
 
 @Controller
@@ -69,21 +72,44 @@ public class LoginAction extends ActionSupport {
 		
 	}
 	
-	public String verifyInfoTel(){
+	public void verifyInfoTel(){
+		response = ServletActionContext.getResponse();
+		PrintWriter pw = null;
+		
 		int count = customerService.verifyInfoTel(customer.getTel());
-		if(count==0){
-			return "success";
-		}else{
-			return "error";
+		Gson gson = new Gson();
+		String countGson = gson.toJson(count);
+		try {
+			 pw = response.getWriter();
+			 pw.write(countGson);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally{
+			if(pw!=null){
+				pw.close();
+			}
 		}
 	}
 	
-	public String verifyInfoUserName(){
+	public void verifyInfoUserName(){
+		response = ServletActionContext.getResponse();
+		PrintWriter pw = null;
 		int count = customerService.verifyInfoUserName(customer.getUserName());
-		if(count==0){
-			return "success";
-		}else{
-			return "error";
+		Gson gson = new Gson();
+		String countGson = gson.toJson(count);
+		try {
+			 pw = response.getWriter();
+			 pw.write(countGson);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally{
+			if(pw!=null){
+				pw.close();
+			}
 		}
 	}
 	
