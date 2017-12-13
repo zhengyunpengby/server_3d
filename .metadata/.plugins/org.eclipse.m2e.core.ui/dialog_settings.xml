@@ -56,12 +56,14 @@
 	</section>
 	<section name="wizardPage">
 		<list key="groupId">
+			<item value="HH"/>
 			<item value="TEST"/>
 			<item value="SERVER_3D_SSH"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="HH"/>
 			<item value="TEST"/>
 			<item value="SERVER_3D_SSH"/>
 		</list>
@@ -89,10 +91,13 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="TT.TT"/>
 		</list>
 		<list key="groupId">
+			<item value="TT"/>
 		</list>
 		<list key="artifactId">
+			<item value="TT"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
