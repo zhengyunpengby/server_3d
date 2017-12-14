@@ -1,0 +1,29 @@
+@CHARSET "UTF-8";
+
+#product-manager{
+	width: 1196px;
+	height: 600px;
+	border: 2px #461D17 solid;
+}
+
+#product-manager-list{
+	width: 194px;
+	height: 600px;
+	border-right: 2px #461D17 solid;
+	float: left;
+}
+
+#product-manager-list ul{
+	width: 194px;
+}
+
+#product-manager-list ul li{
+	float: left;
+	width: 194px;
+}
+
+#product-manager-fact{
+	height: 600px;
+	float: left;
+	width: 1000px;
+}

@@ -9,8 +9,8 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Cache-Control" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<link rel="stylesheet" href="css/comment.css" type="text/css" />
-<link rel="stylesheet" href="css/index.css" type="text/css" />
+<link rel="stylesheet" href="../css/comment.css" type="text/css" />
+<link rel="stylesheet" href="../css/admin.css" type="text/css" />
 <script type="text/javascript">
     function changeFrameHeight(){
         var ifm= document.getElementById("myiframe"); 
@@ -21,50 +21,38 @@
          changeFrameHeight();
     } 
 </script>
-<title>3D木门</title>
+<title>3D木门-管理员首页</title>
 </head>
-
 <body>
 	<div id="header" >
-		<span id="title" class="">3D木门</span>		
-		<s:if test="#session.customer==null">
+		<span id="title" class="">3D木门-内部系统</span>		
+		<s:if test="#session.customer!=null">
 			<div id="load" class="">
 				<ul id="load-ul" class="">
 					<li class="load-cl">
-						<a href="regist.jsp" title="注册">注册</a>
+						<a href="../logout.action" title="退出">退出</a>
 					</li>
-					<li id="load-ul-load" class="load-cl">
-						<a href="login.jsp" title="登录">登录</a>					
+					<li id="load-ul-success" class="load-cl">
+						欢迎   ${customer.userName} ！			
 					</li>
 				</ul>
 			</div>
 		</s:if>
-		<s:else>
-			<div id="load" class="">
-				<ul id="load-ul" class="">
-					<li class="load-cl">
-						<a href="logout.action" title="退出">退出</a>
-					</li>
-					<li id="load-ul-success" class="load-cl">
-						欢迎<a href="login.jsp" title="详细信息"> ${customer.userName} </a>			
-					</li>
-				</ul>
-			</div>
-		</s:else>
 	</div>
+	
 	<div id="menuer" class="">
 		<ul>
-			<li id="menu-selected" class="menuer-ul-li"><a href="">首页</a></li>
-			<li class="menuer-ul-li"><a href="">产品展示</a></li>
-			<li class="menuer-ul-li"><a href="">装潢案例</a></li>
-			<li class="menuer-ul-li"><a href="">拓展业务</a></li>
-			<li class="menuer-ul-li"><a href="">联系我们</a></li>
+			<li id="menu-selected" class="menuer-ul-li"><a href="">销售管理</a></li>
+			<li class="menuer-ul-li"><a href="product.jsp" target="myiframename">产品管理</a></li>
+			<li class="menuer-ul-li"><a href="">客户管理</a></li>
+			<li class="menuer-ul-li"><a href="">盈利分析</a></li>
+			<li class="menuer-ul-li"><a href="">修改密码</a></li>
 		</ul>
 	</div>
 	<div id="conter" class="">
-		<iframe  
+		<iframe name="myiframename"
 			id="myiframe" scrolling="no" onload="changeFrameHeight()" frameborder="0" width="100%"
-			src="cust-jsp/main.jsp"></iframe>
+			src="../cust-jsp/main.jsp"></iframe>
 	</div>
 	<div id="fooder" class="gradient">
 		版权所有 © 2017 淮滨3D木门

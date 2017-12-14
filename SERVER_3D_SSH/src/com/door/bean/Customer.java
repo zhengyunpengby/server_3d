@@ -18,6 +18,8 @@ public class Customer implements Serializable {
 	private String tel;
 	private String home_Address;
 	private String work_Type;
+	private String load_Stat;
+
 	private String remark;
 	private String stat;
 	private Date load_Date;
@@ -26,8 +28,12 @@ public class Customer implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+
+
 	public Customer(String customer_ID, String cert_ID, String userName, String custName, String password, String role,
-			String tel, String home_Address, String work_Type, String remark, String stat, Date load_Date) {
+			String tel, String home_Address, String work_Type, String load_Stat, String remark, String stat,
+			Date load_Date) {
 		super();
 		this.customer_ID = customer_ID;
 		this.cert_ID = cert_ID;
@@ -38,10 +44,12 @@ public class Customer implements Serializable {
 		this.tel = tel;
 		this.home_Address = home_Address;
 		this.work_Type = work_Type;
+		this.load_Stat = load_Stat;
 		this.remark = remark;
 		this.stat = stat;
 		this.load_Date = load_Date;
 	}
+
 
 
 
@@ -141,12 +149,22 @@ public class Customer implements Serializable {
 		this.load_Date = load_Date;
 	}
 
+	public String getLoad_Stat() {
+		return load_Stat;
+	}
+
+	public void setLoad_Stat(String load_Stat) {
+		this.load_Stat = load_Stat;
+	}
+
 	@Override
 	public String toString() {
 		return "Customer [customer_ID=" + customer_ID + ", cert_ID=" + cert_ID + ", userName=" + userName
 				+ ", custName=" + custName + ", password=" + password + ", role=" + role + ", tel=" + tel
-				+ ", home_Address=" + home_Address + ", work_Type=" + work_Type + ", remark=" + remark + ", stat="
-				+ stat + ", load_Date=" + load_Date + "]";
+				+ ", home_Address=" + home_Address + ", work_Type=" + work_Type + ", load_Stat=" + load_Stat
+				+ ", remark=" + remark + ", stat=" + stat + ", load_Date=" + load_Date + "]";
 	}
+	
+	
 		
 }

@@ -6,6 +6,6 @@
 	
 	<div id="main" class="test">
 		test
+		${customer.userName}
 	</div>
 </body>
-</html>

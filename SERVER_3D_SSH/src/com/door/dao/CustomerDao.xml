@@ -14,6 +14,7 @@
             	,tel
             	,home_Address
             	,work_Type
+            	,load_Stat
             	,remark
             	,stat
             	,load_Date
@@ -27,6 +28,7 @@
             	,#{tel}
             	,#{home_Address}
             	,#{work_Type}
+            	,#{load_Stat}
             	,#{remark}
             	,#{stat}
             	,#{load_Date}
@@ -44,6 +46,7 @@
             	,tel
             	,home_Address
             	,work_Type
+            	,load_Stat
             	,remark
             	,stat
             	,load_Date
@@ -63,6 +66,7 @@
             	,tel
             	,home_Address
             	,work_Type
+            	,load_Stat
             	,remark
             	,stat
             	,load_Date
@@ -111,17 +115,18 @@
         <update id="updateCustomer" parameterType="Customer">
         	update customer
        		set         			
-            	cert_ID = ${Cert_ID}
-            	,userName = ${userName}
-            	,custName = ${custName}
-            	,password = ${password}
-            	,role = ${role}
-            	,tel = ${tel}
-            	,home_Address = ${home_Address}
-            	,remark = ${remark}
-            	,work_Type = ${work_Type}
-            	,stat = ${stat}
-            	,load_Date = ${load_Date}
-	          where customer_ID = ${customer_ID}
+            	cert_ID = #{Cert_ID}
+            	,userName = #{userName}
+            	,custName = #{custName}
+            	,password = #{password}
+            	,role = #{role}
+            	,tel = #{tel}
+            	,home_Address = #{home_Address}
+            	,remark = #{remark}
+            	,work_Type = #{work_Type}
+            	,load_Stat =#{load_Stat}
+            	,stat = #{stat}
+            	,load_Date = #{load_Date}
+	          where customer_ID = #{customer_ID}
         </update>
     </mapper>  

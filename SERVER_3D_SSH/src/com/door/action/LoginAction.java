@@ -46,7 +46,11 @@ public class LoginAction extends ActionSupport {
 
 		if (customer != null){
 			session.setAttribute("customer", customer);
-			return "success";
+			if("admin".equals(customer.getRole())){
+				return "admin";
+			}else{
+				return "success";
+			}			
 		}else{
 			return "error";
 		}		
@@ -61,6 +65,7 @@ public class LoginAction extends ActionSupport {
 		customer.setCustomer_ID(customer_ID);
 		customer.setLoad_Date(load_date);
 		customer.setStat("N");
+		customer.setRole("admin");
 		
 		int count = customerService.addCustomer(customer);
 		if(count==1){

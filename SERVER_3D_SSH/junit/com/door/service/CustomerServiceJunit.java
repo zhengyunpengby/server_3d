@@ -21,7 +21,7 @@ public class CustomerServiceJunit {
 	
 	@Resource
 	private CustomerService customerService;
-	private Customer customer = new Customer("123", "zyp", "a", "a", "a", "a", "a", "a", "a", "a", "a", new Date());
+	private Customer customer = new Customer("123", "zyp", "a", "a", "a", "a", "a", "a","a", "a", "a", "a", new Date());
 	
 	/*@Test
 	public void getCustomer(){		
