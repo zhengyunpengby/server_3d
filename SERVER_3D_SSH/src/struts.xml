@@ -7,7 +7,10 @@
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
 	
+	<constant name="struts.multipart.saveDir" value="D:/tmp"/>
+	
+	
 	<include file="struts/customer.xml"></include> 
-	<!-- <include file="struts/product.xml"></include> --> 
+	<include file="struts/product.xml"></include>
 	
 </struts>

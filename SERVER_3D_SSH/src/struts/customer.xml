@@ -25,12 +25,5 @@
 		<action name="verifyInfoUserName" class="com.door.action.LoginAction" method="verifyInfoUserName"></action>
 		<action name="verifyInfoTel" class="com.door.action.LoginAction" method="verifyInfoTel"></action>
 		
-		
-		<action name="upLoadProductImages" class="com.door.action.ProductAction" method="upLoadProductImages">  
-	         <result name="success">index.jsp</result>  
-	         <result name="error">error.jsp</result>  
-	         <param name="maximumSize">1000000</param>  
-	         <param name="allowedTypes">image/*</param>  
-	     </action> 
 	</package>
 </struts>

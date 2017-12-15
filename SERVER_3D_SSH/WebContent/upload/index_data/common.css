@@ -43,18 +43,20 @@ body {
 	background: #f4f4f4;
 	font-size: 14px;
 	font-family: "微软雅黑", "PingFang SC", "arial, helvetica, sans-serif";
+	width: 880px;
+	margin: 0 auto 0 auto;
 }
 .clear {
 	clear: both;
 }
 .full{
-	width: 1210px;
-	min-width: 1210px;
+	width: 880px;
+	min-width: 880px;
 	margin: 0 auto;
 }
 .full-big{
-	width: 1340px;
-	min-width: 1340px;
+	width: 880px;
+	min-width: 880px;
 	margin: 0 auto;
 }
 .img-full{
@@ -115,7 +117,6 @@ td,
 th,
 pre,
 form,
-body,
 input,
 strong,
 textarea,

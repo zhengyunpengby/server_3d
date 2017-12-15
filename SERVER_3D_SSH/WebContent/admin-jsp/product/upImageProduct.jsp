@@ -1,16 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+pageContext.setAttribute("basePath",basePath);
+%>
 <body>
 <link href="../../upload/index_data/common.css" type="text/css" rel="stylesheet">
 <link href="../../upload/index_data/index.css" type="text/css" rel="stylesheet">
 <script src="../../upload/index_data/jquery.js"></script>
 <script src="../../upload/index_data/imgUp.js"></script>
 
- <form action="../../upLoadProductImages.action" method="post" enctype="multipart/form-data" >
+<form action="${basePath }/product/upLoadProductImages.action" method="post" enctype="multipart/form-data" >
 <div class="img-box full">
 	<section class=" img-section">
-		<p class="up-p"><span class="up-span">最多可以上传5张图片，马上上传</span></p>
+		<p class="up-p"><span class="up-span">最多可以上传5张图片，马上上传</span> <input type="submit" value="提交"></p>
 		<div class="z_photo upimg-div clear">
 				 <section class="z_file fl">
 					<img src="../../upload/index_data/a11.png" class="add-img">
@@ -25,19 +29,5 @@
 		<p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>
 	</div>
 </aside>
-<input type="submit" value="提交">
-<!-- <button id="up_images" onclick="up_images()">提交</button>
-<script>
-	function up_images(){
-		alert(document.getElementById("file").files);
-		var objs = document.getElementById("file").files;
-		
-		var arr = [];
-		for (var n in objs) {
-		    arr.push(n+"="+objs[n]);
-		}
-		alert(arr.join("&"));
-	}
-</script> -->
 </form>
 </body>

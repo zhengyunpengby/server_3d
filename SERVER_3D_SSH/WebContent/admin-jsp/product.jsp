@@ -5,7 +5,7 @@
 	<script type="text/javascript">
 	    function changeFrameHeight(){
 	        var ifm= document.getElementById("product-iframe"); 
-	        ifm.height=ifm.contentWindow.document.body.scrollHeight;
+	        //ifm.height=ifm.contentWindow.document.body.scrollHeight;
 	    }
 	
 	    window.onresize=function(){  
@@ -26,7 +26,7 @@
 		</div>
 		<div id="product-manager-fact" class="">
 			<iframe  name="product-iframe"
-			id="product-iframe" scrolling="no" onload="changeFrameHeight()" frameborder="0" width="100%"
+			id="product-iframe" scrolling="no" onload="changeFrameHeight()" frameborder="0" width="100%" height="650px"
 			src="product/loadProduct.jsp"></iframe>
 		</div>
 	</div>

@@ -1,6 +1,9 @@
-/*上传图片插件的样式*/
+@CHARSET "UTF-8";
+/*涓婁紶鍥剧墖鎻掍欢鐨勬牱寮�*/
+
 .img-box{
 	margin-top: 40px;
+	width: 880px;
 }
 .img-box .up-p{
 	margin-bottom: 20px;
@@ -84,7 +87,7 @@
     width: 190px;
     height: 180px;
 }
-/*遮罩层样式*/
+/*閬僵灞傛牱寮�*/
 .mask{
 	z-index: 1000;
 	display: none;

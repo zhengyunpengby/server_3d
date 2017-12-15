@@ -1,7 +1,7 @@
 $(function(){
 	var delParent;
 	var defaults = {
-		fileType         : ["jpg","png","bmp","jpeg"],   // 上传文件的类型
+		fileType         : ["jpg","png","bmp","jpeg","JPG","PNG","BMP","JPEG"],   // 上传文件的类型
 		fileSize         : 1024 * 1024 * 10                  // 上传文件的大小 10M
 	};
 		/*点击图片的文本框*/
@@ -15,10 +15,10 @@ $(function(){
 		//遍历得到的图片文件
 		var numUp = imgContainer.find(".up-section").length;
 		var totalNum = numUp + fileList.length;  //总的数量
-		if(fileList.length > 5 || totalNum > 5 ){
+		if(fileList.length > 10 || totalNum > 10 ){
 			alert("上传图片数目不可以超过5个，请重新选择");  //一次选择上传超过5个 或者是已经上传和这次上传的到的总数也不可以超过5个
 		}
-		else if(numUp < 5){
+		else if(numUp < 10){
 			fileList = validateUp(fileList);
 			for(var i = 0;i<fileList.length;i++){
 			 var imgUrl = window.URL.createObjectURL(fileList[i]);
@@ -52,7 +52,7 @@ $(function(){
 		 	 $(".up-img").removeClass("up-opcity");
 		 },450);
 		 numUp = imgContainer.find(".up-section").length;
-		if(numUp >= 5){
+		if(numUp >= 10){
 			$(this).parent().hide();
 		}
 	});
@@ -67,7 +67,7 @@ $(function(){
 	$(".wsdel-ok").click(function(){
 		$(".works-mask").hide();
 		var numUp = delParent.siblings().length;
-		if(numUp < 6){
+		if(numUp < 11){
 			delParent.parent().find(".z_file").show();
 		}
 		 delParent.remove();
