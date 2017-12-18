@@ -1,8 +1,7 @@
 package com.door.bean;
 
-import java.io.Serializable; 
+import java.io.Serializable;  
 import java.util.Date;
-import java.util.List;
 
 public class Product implements Serializable{
 
@@ -25,26 +24,24 @@ public class Product implements Serializable{
 	private double width_H;
 	private double thick_L;
 	private double thick_H;
-	private String cheak_flag;
-	private double per_price;
+	private String check_flag;
+	private double pre_price;
 	private double now_price;
 	private double discount;
 	private double discount_type;
 	private String remark;
 	private String stat;
 	private Date load_date;
-	private List<Image> image;
 	
 	
 	public Product() {
-		// TODO Auto-generated constructor stub
 	}
 
 	
 
 	public Product(String product_ID, String product_no, String product_name, String product_type, String texture,
 			double height, double width, double thick, double height_L, double height_H, double width_L, double width_H,
-			double thick_L, double thick_H, String cheak_flag, double per_price, double now_price, double discount,
+			double thick_L, double thick_H, String check_flag, double pre_price, double now_price, double discount,
 			double discount_type, String remark, String stat, Date load_date) {
 		super();
 		this.product_ID = product_ID;
@@ -61,8 +58,8 @@ public class Product implements Serializable{
 		this.width_H = width_H;
 		this.thick_L = thick_L;
 		this.thick_H = thick_H;
-		this.cheak_flag = cheak_flag;
-		this.per_price = per_price;
+		this.check_flag = check_flag;
+		this.pre_price = pre_price;
 		this.now_price = now_price;
 		this.discount = discount;
 		this.discount_type = discount_type;
@@ -212,23 +209,23 @@ public class Product implements Serializable{
 	}
 
 
-	public String getCheak_flag() {
-		return cheak_flag;
+	public String getCheck_flag() {
+		return check_flag;
 	}
 
 
-	public void setCheak_flag(String cheak_flag) {
-		this.cheak_flag = cheak_flag;
+	public void setCheck_flag(String check_flag) {
+		this.check_flag = check_flag;
 	}
 
 
-	public double getPer_price() {
-		return per_price;
+	public double getPre_price() {
+		return pre_price;
 	}
 
 
-	public void setPer_price(double per_price) {
-		this.per_price = per_price;
+	public void setPre_price(double pre_price) {
+		this.pre_price = pre_price;
 	}
 
 
@@ -291,12 +288,5 @@ public class Product implements Serializable{
 		this.load_date = load_date;
 	}
 
-	public List<Image> getImage() {
-		return image;
-	}
-	
-	public void setImage(List<Image> image) {
-		this.image = image;
-	}	
 	
 }

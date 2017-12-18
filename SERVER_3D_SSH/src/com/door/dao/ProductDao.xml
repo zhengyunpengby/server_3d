@@ -3,16 +3,390 @@
       
     <mapper namespace="com.door.dao.ProductDao">  
 
-        <insert id="addCustomer" parameterType="Customer">  
-           
+        <insert id="addProduct" parameterType="Product">  
+           insert into product (
+           		product_ID
+           		,product_no
+           		,product_name
+           		,product_type
+           		,Texture
+           		,height
+           		,width
+           		,thick
+           		,height_L
+           		,height_H
+           		,width_L
+           		,width_H
+           		,thick_L
+           		,thick_H
+           		,check_flag
+           		,pre_price
+           		,now_price
+           		,discount
+           		,discount_type
+           		,remark
+           		,stat
+           		,load_date
+           ) values(
+           		#{product_ID}
+           		,#{product_no}
+           		,#{product_name}
+           		,#{product_type}
+           		,#{Texture}
+           		,#{height}
+           		,#{width}
+           		,#{thick}
+           		,#{height_L}
+           		,#{height_H}
+           		,#{width_L}
+           		,#{width_H}
+           		,#{thick_L}
+           		,#{thick_H}
+           		,#{check_flag}
+           		,#{pre_price}
+           		,#{now_price}
+           		,#{discount}
+           		,#{discount_type}
+           		,#{remark}
+           		,#{stat}
+           		,#{load_date}
+           )
         </insert>  
           
-        <select id="getCustomer"  resultType="Customer">  
-            
+        <select id="findProductById"  resultType="Product">  
+            select
+            	product_ID
+           		,product_no
+           		,product_name
+           		,product_type
+           		,Texture
+           		,height
+           		,width
+           		,thick
+           		,height_L
+           		,height_H
+           		,width_L
+           		,width_H
+           		,thick_L
+           		,thick_H
+           		,check_flag
+           		,pre_price
+           		,now_price
+           		,discount
+           		,discount_type
+           		,remark
+           		,stat
+           		,load_date
+            from product
+            where stat='N'
+            and product_ID=#{product_ID}
         </select>          
         
+        <select id="findProductsById"  resultType="Product">  
+        	select
+            	product_ID
+           		,product_no
+           		,product_name
+           		,product_type
+           		,Texture
+           		,height
+           		,width
+           		,thick
+           		,height_L
+           		,height_H
+           		,width_L
+           		,width_H
+           		,thick_L
+           		,thick_H
+           		,check_flag
+           		,pre_price
+           		,now_price
+           		,discount
+           		,discount_type
+           		,remark
+           		,stat
+           		,load_date
+            from product
+            where stat='N'
+            and product_ID=#{product_ID}
+        </select>
+        
+        <select id="findProductByNo"  resultType="Product">  
+        	select
+            	product_ID
+           		,product_no
+           		,product_name
+           		,product_type
+           		,Texture
+           		,height
+           		,width
+           		,thick
+           		,height_L
+           		,height_H
+           		,width_L
+           		,width_H
+           		,thick_L
+           		,thick_H
+           		,check_flag
+           		,pre_price
+           		,now_price
+           		,discount
+           		,discount_type
+           		,remark
+           		,stat
+           		,load_date
+            from product
+            wherestat='N'
+            and product_no=#{product_no}
+        </select>
+        
+        <select id="findProductByName"  resultType="Product">  
+        	select
+            	product_ID
+           		,product_no
+           		,product_name
+           		,product_type
+           		,Texture
+           		,height
+           		,width
+           		,thick
+           		,height_L
+           		,height_H
+           		,width_L
+           		,width_H
+           		,thick_L
+           		,thick_H
+           		,check_flag
+           		,pre_price
+           		,now_price
+           		,discount
+           		,discount_type
+           		,remark
+           		,stat
+           		,load_date
+            from product
+            where stat='N'
+            and product_name=#{product_name}
+        </select>
+        
+        <select id="findProductAll"  resultType="List">  
+        	select
+            	product_ID
+           		,product_no
+           		,product_name
+           		,product_type
+           		,Texture
+           		,height
+           		,width
+           		,thick
+           		,height_L
+           		,height_H
+           		,width_L
+           		,width_H
+           		,thick_L
+           		,thick_H
+           		,check_flag
+           		,pre_price
+           		,now_price
+           		,discount
+           		,discount_type
+           		,remark
+           		,stat
+           		,load_date
+            from product
+            where stat='N'
+        </select>
+        
+        <select id="findProductMap"  resultType="Map" parameterType="Map">  
+        	select
+            	product_ID
+           		,product_no
+           		,product_name
+           		,product_type
+           		,Texture
+           		,height
+           		,width
+           		,thick
+           		,height_L
+           		,height_H
+           		,width_L
+           		,width_H
+           		,thick_L
+           		,thick_H
+           		,check_flag
+           		,pre_price
+           		,now_price
+           		,discount
+           		,discount_type
+           		,remark
+           		,stat
+           		,load_date
+            from product
+            where stat='N'
+        </select>
+        
+        <select id="findProductByType"  resultType="List">  
+        	select
+            	product_ID
+           		,product_no
+           		,product_name
+           		,product_type
+           		,Texture
+           		,height
+           		,width
+           		,thick
+           		,height_L
+           		,height_H
+           		,width_L
+           		,width_H
+           		,thick_L
+           		,thick_H
+           		,check_flag
+           		,pre_price
+           		,now_price
+           		,discount
+           		,discount_type
+           		,remark
+           		,stat
+           		,load_date
+            from product
+            where stat='N'
+            and product_type=#{product_type}
+        </select>
+        
+        <select id="findProductByTexture"  resultType="List">  
+        	select
+            	product_ID
+           		,product_no
+           		,product_name
+           		,product_type
+           		,Texture
+           		,height
+           		,width
+           		,thick
+           		,height_L
+           		,height_H
+           		,width_L
+           		,width_H
+           		,thick_L
+           		,thick_H
+           		,check_flag
+           		,pre_price
+           		,now_price
+           		,discount
+           		,discount_type
+           		,remark
+           		,stat
+           		,load_date
+            from product
+            where stat='N'
+            and Texture=#{Texture}
+        </select>
+        
+        <select id="findProductByPrice"  resultType="List">  
+        	select
+            	product_ID
+           		,product_no
+           		,product_name
+           		,product_type
+           		,Texture
+           		,height
+           		,width
+           		,thick
+           		,height_L
+           		,height_H
+           		,width_L
+           		,width_H
+           		,thick_L
+           		,thick_H
+           		,check_flag
+           		,pre_price
+           		,now_price
+           		,discount
+           		,discount_type
+           		,remark
+           		,stat
+           		,load_date
+            from product
+            where stat='N'
+            and now_price between #{min_price} and #{max_price}
+        </select>
+        
+        <select id="findProductsAnd"  resultType="List">  
+        	select
+            	product_ID
+           		,product_no
+           		,product_name
+           		,product_type
+           		,Texture
+           		,height
+           		,width
+           		,thick
+           		,height_L
+           		,height_H
+           		,width_L
+           		,width_H
+           		,thick_L
+           		,thick_H
+           		,check_flag
+           		,pre_price
+           		,now_price
+           		,discount
+           		,discount_type
+           		,remark
+           		,stat
+           		,load_date
+            from product
+            where stat='N'
+            <if test="product_name != null"> 
+            	and product_name like CONCAT(CONCAT('%', #{product_name}),'%')
+            </if>
+             <if test="product_type != null"> 
+            	and product_type like CONCAT(CONCAT('%', #{product_type}),'%')
+            </if>
+             <if test="Texture != null"> 
+            	and Texture like CONCAT(CONCAT('%', #{Texture}),'%')
+            </if>
+        </select>
+        
+        <select id="findProductsOr"  resultType="List">  
+        	select
+            	product_ID
+           		,product_no
+           		,product_name
+           		,product_type
+           		,Texture
+           		,height
+           		,width
+           		,thick
+           		,height_L
+           		,height_H
+           		,width_L
+           		,width_H
+           		,thick_L
+           		,thick_H
+           		,check_flag
+           		,pre_price
+           		,now_price
+           		,discount
+           		,discount_type
+           		,remark
+           		,stat
+           		,load_date
+            from product
+            where stat='N'
+            <if test="product_name != null"> 
+            	or product_name like CONCAT(CONCAT('%', #{product_name}),'%')
+            </if>
+             <if test="product_type != null"> 
+            	or product_type like CONCAT(CONCAT('%', #{product_type}),'%')
+            </if>
+             <if test="Texture != null"> 
+            	or Texture like CONCAT(CONCAT('%', #{Texture}),'%')
+            </if>
+        </select>
          
-        <update id="updateCustomer" parameterType="Customer">
+        <update id="updateProduct" parameterType="Product">
         	
         </update>
     </mapper>  

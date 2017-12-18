@@ -11,14 +11,20 @@ pageContext.setAttribute("basePath",basePath);
 <script src="../../upload/index_data/jquery.js"></script>
 <script src="../../upload/index_data/imgUp.js"></script>
 
-<form action="${basePath }/product/upLoadProductImages.action" method="post" enctype="multipart/form-data" >
+<form action="${basePath }product/addImages.action" method="post" enctype="multipart/form-data" >
+${product.product_name }<br/>
+${product.product_type }<br/>
+${product.now_price }<br/>
+${product.discount }<br/>
+${product.product_ID }<br/>
 <div class="img-box full">
+	<input name="product.product_ID " value="${product.product_ID }" hidden="hidden">
 	<section class=" img-section">
 		<p class="up-p"><span class="up-span">最多可以上传5张图片，马上上传</span> <input type="submit" value="提交"></p>
 		<div class="z_photo upimg-div clear">
 				 <section class="z_file fl">
 					<img src="../../upload/index_data/a11.png" class="add-img">
-					<input name="upload" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple="" type="file">
+					<input name="upload" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple="multiple" type="file">
 				 </section>
 		 </div>
 	 </section>

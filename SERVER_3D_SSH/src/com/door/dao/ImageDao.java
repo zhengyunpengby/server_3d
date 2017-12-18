@@ -13,7 +13,7 @@ public interface ImageDao {
 	/*
 	 * 批量增加产品图片
 	 */
-	public int addImage(List<Image> image);
+	public int addImages(List<Image> image);
 	/*
 	 * 查找产品主图片（展示产品列表时显示的图片：main_flag=1）
 	 */

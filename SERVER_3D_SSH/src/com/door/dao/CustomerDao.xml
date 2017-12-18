@@ -17,7 +17,6 @@
             	,load_Stat
             	,remark
             	,stat
-            	,load_Date
             ) values(
             	#{customer_ID}
             	,#{cert_ID}
@@ -31,7 +30,6 @@
             	,#{load_Stat}
             	,#{remark}
             	,#{stat}
-            	,#{load_Date}
             )  
         </insert>  
           

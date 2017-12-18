@@ -6,11 +6,21 @@
 <struts>	
 	<package name="product" namespace="/product" extends="struts-default">	
 	
-		<action name="upLoadProductImages" class="productAction" method="upLoadProductImages">  
+		<action name="upLoadProductImages" class="com.door.action.ProductAction" method="upLoadProductImages">  
 	         <result name="success">/admin-jsp/product/upSuccess.jsp</result>  
 	         <result name="error">/error.jsp</result>  
 	         <param name="maximumSize">1000000</param>  
 	         <param name="allowedTypes">image/*</param>  
 	     </action> 
+	     
+	     <action name="addProduct" class="com.door.action.ProductAction" method="addProduct">  
+	         <result name="success">/admin-jsp/product/showProduct.jsp</result>  
+	         <result name="error">/error.jsp</result>  
+	     </action>
+	     
+	     <action name="addImages" class="com.door.action.ProductAction" method="addImages">  
+	         <result name="success">/admin-jsp/product/showProduct.jsp</result>  
+	         <result name="error">/error.jsp</result>  
+	     </action>
 	</package>
 </struts>

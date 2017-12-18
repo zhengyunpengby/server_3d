@@ -3,16 +3,90 @@
       
     <mapper namespace="com.door.dao.ImageDao">  
 
-        <insert id="addCustomer" parameterType="Customer">  
-           
+        <insert id="addImage" parameterType="Image">  
+           insert into image(
+           		image_ID
+            	,product_ID
+            	,image_name
+            	,main_flag
+            	,image_data
+            	,remark
+            	,load_date
+           )values(
+           		#{image_ID}
+            	,#{product_ID}
+            	,#{image_name}
+            	,#{main_flag}
+            	,#{image_data}
+            	,#{remark}
+            	,#{load_date}
+           )
+        </insert> 
+        
+        <insert id="addImages" parameterType="Image">  
+           insert into image(
+           		image_ID
+            	,product_ID
+            	,image_name
+            	,main_flag
+            	,image_data
+            	,remark
+            	,load_date
+           )values
+           <foreach collection ="list" item="image" index= "index" separator =",">
+	           (
+		           #{image.image_ID}
+	            	,#{image.product_ID}
+	            	,#{image.image_name}
+	            	,#{image.main_flag}
+	            	,#{image.image_data}
+	            	,#{image.remark}
+	            	,#{image.load_date}
+	           )
+           </foreach>
         </insert>  
           
-        <select id="getCustomer"  resultType="Customer">  
-            
-        </select>          
+        <select id="findImageMain"  resultType="Image">  
+            select
+            	image_ID
+            	,product_ID
+            	,image_name
+            	,main_flag
+            	,image_data
+            	,remark
+            	,load_date
+            from image
+            where stat = 'N'
+            and image_ID = 'Y'
+            and product_ID = #{product_ID}
+        </select>    
         
+        <select id="findImageByProduct"  resultType="Image">  
+            select
+            	image_ID
+            	,product_ID
+            	,image_name
+            	,main_flag
+            	,image_data
+            	,remark
+            	,load_date
+            from image
+            where stat = 'N'
+            and product_ID = #{product_ID}
+        </select>  
          
-        <update id="updateCustomer" parameterType="Customer">
-        	
+        <update id="updateImageMain" parameterType="Image">
+        	update image
+        		set
+        			product_ID = #{product_ID}
+        			,image_name = #{image_name}
+        			,main_flag = #{main_flag}
+        			,image_data = #{image_data}
+        			,remark = #{remark}
+        	where image_ID=#{image_ID}
         </update>
+        
+        <delete id="deleteImage">
+        	delete from image where image_ID=#{image_ID}
+        </delete>
     </mapper>  
