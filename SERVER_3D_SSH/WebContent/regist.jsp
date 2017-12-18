@@ -1,36 +1,63 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Cache-Control" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<link rel="stylesheet" href="css/comment.css" type="text/css" />
-<title>regist</title>
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>3D木门-注册</title>
+<link rel="stylesheet" href="login/css/style.css" />
 <body>
-	<div>
-		<form action="regist.action" method="post">
-			<ul>
-				<li><label>姓名：</label><input name="customer.custName" type="text" maxlength="10"/></li>
-				<li><label>证件号 ：</label><input name="customer.cert_ID" type="text" maxlength="18"/></li>
-				<li><label>住址：</label><input name="customer.home_Address" type="text" maxlength="100"/></li>
-				<li><label>工作类型：</label><input name="customer.work_Type" type="text" maxlength="100"/></li>
-			</ul>
 
-			<ul>
-				<li><label>登录名：</label><input name="customer.userName" type="text" maxlength="14"/><a href="verifyInfoUserName.action?customer.userName=123">校验</a></li></li>
-				<li><label>手机号：</label><input name="customer.tel" type="text" maxlength="14"/><a href="verifyInfoTel.action?customer.tel=123">校验</a></li>
-				<li><label>密码：</label><input name="customer.password" type="password" maxlength="20"/></li>
-				<li><label>确认密码：</label><input name="" type="password" maxlength="20"/></li>
-			</ul>
-				
-			<div>
-				<input type="submit" value="提交">
-			</div>
-		</form>
+<div class="register-container blur">
+	<h1>3D木门</h1>
+	
+	<div class="connect">
+		<p>淮滨代理商</p>
 	</div>
+	
+	<form action="regist.action" method="post" id="registerForm">
+		<div>
+			<input type="text" name="customer.userName" class="username" placeholder="您的用户名" autocomplete="off"/>
+		</div>
+		<div>
+			<input type="password" name="customer.password" class="password" placeholder="输入密码" oncontextmenu="return false" onpaste="return false" />
+		</div>
+		<div>
+			<input type="password" name="confirm_password" class="confirm_password" placeholder="再次输入密码" oncontextmenu="return false" onpaste="return false" />
+		</div>
+		<div>
+			<input type="text" name="customer.tel" class="phone_number" placeholder="输入手机号码" autocomplete="off" id="number"/>
+		</div>
+		<div>
+			<input type="text" name="customer.custName" class="custname" placeholder="您的姓名" oncontextmenu="return false" onpaste="return false" />
+		</div>
+		<div>
+			<input type="text" name="customer.cert_ID" class="certid" placeholder="证件号" oncontextmenu="return false" onpaste="return false" />
+		</div>
+		<div>
+			<input type="text" name="customer.home_Address" class="homeaddress" placeholder="家庭住址" oncontextmenu="return false" onpaste="return false" />
+		</div>
+		<div>
+			<input type="text" name="customer.work_Type" class="worktype" placeholder="工作类型" oncontextmenu="return false" onpaste="return false" />
+		</div>
+
+		<button id="submit" type="submit">注 册</button>
+	</form>
+	<a href="login.jsp">
+		<button type="button" class="register-tis">已经有账号？</button>
+	</a>
+
+</div>
+
+
+<script src="login/js/jquery.min.js"></script>
+<script src="login/js/common.js"></script>
+<!--背景图片自动更换-->
+<script src="login/js/supersized.3.2.7.min.js"></script>
+<script src="login/js/supersized-init.js"></script>
+<!--表单验证-->
+<script src="login/js/jquery.validate.min.js?var1.14.0"></script>
+
 </body>
 </html>

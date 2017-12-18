@@ -19,7 +19,6 @@ public class Customer implements Serializable {
 	private String home_Address;
 	private String work_Type;
 	private String load_Stat;
-
 	private String remark;
 	private String stat;
 	private Date load_Date;
