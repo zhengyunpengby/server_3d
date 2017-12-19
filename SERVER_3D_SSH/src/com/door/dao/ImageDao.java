@@ -15,6 +15,10 @@ public interface ImageDao {
 	 */
 	public int addImages(List<Image> image);
 	/*
+	 * 查找图片
+	 */
+	public Image findImage(String image_id);
+	/*
 	 * 查找产品主图片（展示产品列表时显示的图片：main_flag=1）
 	 */
 	public Image findImageMain(String ProductId);

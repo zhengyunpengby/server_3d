@@ -1,0 +1,67 @@
+@CHARSET "UTF-8";
+body{
+	margin: 0px;
+}
+
+#product-container{
+	float: left;
+	height: 350px;
+	width: 260px;
+	border: 2px #bfcddb solid;
+	margin: 5px ;
+}
+
+#image-container{
+	height: 260px;
+	width: 260px;
+	border-bottom: 2px #bfcddb solid;
+	vertical-align: middle;
+	text-align: center;
+	display: table-cell;
+}
+
+#image-container img{
+	max-height: 260px;
+	max-width: 260px;
+	margin:auto auto;	
+}
+
+#product-container div table{
+	width: 260px;
+	height: 90px;
+}
+#product-container div table tr{
+	width: 260px;
+}
+
+#product-container div table tr td{
+	width: 50%;
+}
+
+#product_name{
+	font-family:"微软雅黑";
+	font-size:16px; 
+	font-weight: 600;
+	padding-top: 6px;
+	padding-left: 5px;
+	text-align: center;
+}
+
+#product_type{
+	padding-left: 5px;
+}
+
+#Texture{
+	padding-left: 5px;
+}
+
+#now_price{
+	padding-right: 5px;
+	text-align: right;
+}
+
+#discount{
+	padding-right: 5px;
+	text-align: right;
+}
+

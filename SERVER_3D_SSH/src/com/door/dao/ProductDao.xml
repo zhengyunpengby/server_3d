@@ -53,336 +53,347 @@
            )
         </insert>  
           
-        <select id="findProductById"  resultType="Product">  
+        <select id="findProductById"  resultType="Map">  
             select
-            	product_ID
-           		,product_no
-           		,product_name
-           		,product_type
-           		,Texture
-           		,height
-           		,width
-           		,thick
-           		,height_L
-           		,height_H
-           		,width_L
-           		,width_H
-           		,thick_L
-           		,thick_H
-           		,check_flag
-           		,pre_price
-           		,now_price
-           		,discount
-           		,discount_type
-           		,remark
-           		,stat
-           		,load_date
-            from product
-            where stat='N'
-            and product_ID=#{product_ID}
+            	a.product_ID
+           		,a.product_no
+           		,a.product_name
+           		,a.product_type
+           		,a.Texture
+           		,a.height
+           		,a.width
+           		,a.thick
+           		,a.height_L
+           		,a.height_H
+           		,a.width_L
+           		,a.width_H
+           		,a.thick_L
+           		,a.thick_H
+           		,a.check_flag
+           		,a.pre_price
+           		,a.now_price
+           		,a.discount
+           		,a.discount_type
+           		,a.remark
+           		,a.stat
+           		,a.load_date
+           		,b.image_ID
+            from product a
+            left join image b
+            on a.product_ID = b.product_ID
+            and b.main_flag = 'Y'
+            where a.stat='N'
+            and a.product_ID=#{product_ID}
         </select>          
         
-        <select id="findProductsById"  resultType="Product">  
+        <select id="findProductByNo"  resultType="Map">  
         	select
-            	product_ID
-           		,product_no
-           		,product_name
-           		,product_type
-           		,Texture
-           		,height
-           		,width
-           		,thick
-           		,height_L
-           		,height_H
-           		,width_L
-           		,width_H
-           		,thick_L
-           		,thick_H
-           		,check_flag
-           		,pre_price
-           		,now_price
-           		,discount
-           		,discount_type
-           		,remark
-           		,stat
-           		,load_date
-            from product
-            where stat='N'
-            and product_ID=#{product_ID}
+            	a.product_ID
+           		,a.product_no
+           		,a.product_name
+           		,a.product_type
+           		,a.Texture
+           		,a.height
+           		,a.width
+           		,a.thick
+           		,a.height_L
+           		,a.height_H
+           		,a.width_L
+           		,a.width_H
+           		,a.thick_L
+           		,a.thick_H
+           		,a.check_flag
+           		,a.pre_price
+           		,a.now_price
+           		,a.discount
+           		,a.discount_type
+           		,a.remark
+           		,a.stat
+           		,a.load_date
+           		,b.image_ID
+            from product a
+            left join image b
+            on a.product_ID = b.product_ID
+            and b.main_flag = 'Y'
+            where a.stat='N'
+            and a.product_no=#{product_no}
         </select>
         
-        <select id="findProductByNo"  resultType="Product">  
+        <select id="findProductByName"  resultType="Map">  
         	select
-            	product_ID
-           		,product_no
-           		,product_name
-           		,product_type
-           		,Texture
-           		,height
-           		,width
-           		,thick
-           		,height_L
-           		,height_H
-           		,width_L
-           		,width_H
-           		,thick_L
-           		,thick_H
-           		,check_flag
-           		,pre_price
-           		,now_price
-           		,discount
-           		,discount_type
-           		,remark
-           		,stat
-           		,load_date
-            from product
-            wherestat='N'
-            and product_no=#{product_no}
+            	a.product_ID
+           		,a.product_no
+           		,a.product_name
+           		,a.product_type
+           		,a.Texture
+           		,a.height
+           		,a.width
+           		,a.thick
+           		,a.height_L
+           		,a.height_H
+           		,a.width_L
+           		,a.width_H
+           		,a.thick_L
+           		,a.thick_H
+           		,a.check_flag
+           		,a.pre_price
+           		,a.now_price
+           		,a.discount
+           		,a.discount_type
+           		,a.remark
+           		,a.stat
+           		,a.load_date
+           		,b.image_ID
+            from product a
+            left join image b
+            on a.product_ID = b.product_ID
+            and b.main_flag = 'Y'
+            where a.stat='N'
+            and a.product_name=#{product_name}
         </select>
         
-        <select id="findProductByName"  resultType="Product">  
+        <select id="findProductAll"  resultType="Map">  
         	select
-            	product_ID
-           		,product_no
-           		,product_name
-           		,product_type
-           		,Texture
-           		,height
-           		,width
-           		,thick
-           		,height_L
-           		,height_H
-           		,width_L
-           		,width_H
-           		,thick_L
-           		,thick_H
-           		,check_flag
-           		,pre_price
-           		,now_price
-           		,discount
-           		,discount_type
-           		,remark
-           		,stat
-           		,load_date
-            from product
-            where stat='N'
-            and product_name=#{product_name}
-        </select>
-        
-        <select id="findProductAll"  resultType="List">  
-        	select
-            	product_ID
-           		,product_no
-           		,product_name
-           		,product_type
-           		,Texture
-           		,height
-           		,width
-           		,thick
-           		,height_L
-           		,height_H
-           		,width_L
-           		,width_H
-           		,thick_L
-           		,thick_H
-           		,check_flag
-           		,pre_price
-           		,now_price
-           		,discount
-           		,discount_type
-           		,remark
-           		,stat
-           		,load_date
-            from product
-            where stat='N'
+            	a.product_ID
+           		,a.product_no
+           		,a.product_name
+           		,a.product_type
+           		,a.Texture
+           		,a.height
+           		,a.width
+           		,a.thick
+           		,a.height_L
+           		,a.height_H
+           		,a.width_L
+           		,a.width_H
+           		,a.thick_L
+           		,a.thick_H
+           		,a.check_flag
+           		,a.pre_price
+           		,a.now_price
+           		,a.discount
+           		,a.discount_type
+           		,a.remark
+           		,a.stat
+           		,a.load_date
+           		,b.image_ID
+            from product a
+            left join image b
+            on a.product_ID = b.product_ID
+            and b.main_flag = 'Y'
+            where a.stat='N'
         </select>
         
         <select id="findProductMap"  resultType="Map" parameterType="Map">  
         	select
-            	product_ID
-           		,product_no
-           		,product_name
-           		,product_type
-           		,Texture
-           		,height
-           		,width
-           		,thick
-           		,height_L
-           		,height_H
-           		,width_L
-           		,width_H
-           		,thick_L
-           		,thick_H
-           		,check_flag
-           		,pre_price
-           		,now_price
-           		,discount
-           		,discount_type
-           		,remark
-           		,stat
-           		,load_date
-            from product
-            where stat='N'
+            	a.product_ID
+           		,a.product_no
+           		,a.product_name
+           		,a.product_type
+           		,a.Texture
+           		,a.height
+           		,a.width
+           		,a.thick
+           		,a.height_L
+           		,a.height_H
+           		,a.width_L
+           		,a.width_H
+           		,a.thick_L
+           		,a.thick_H
+           		,a.check_flag
+           		,a.pre_price
+           		,a.now_price
+           		,a.discount
+           		,a.discount_type
+           		,a.remark
+           		,a.stat
+           		,a.load_date
+           		,b.image_ID
+            from product a
+            left join image b
+            on a.product_ID = b.product_ID
+            and b.main_flag = 'Y'
+            where a.stat='N'
         </select>
         
-        <select id="findProductByType"  resultType="List">  
+        <select id="findProductByType"  resultType="Map">  
         	select
-            	product_ID
-           		,product_no
-           		,product_name
-           		,product_type
-           		,Texture
-           		,height
-           		,width
-           		,thick
-           		,height_L
-           		,height_H
-           		,width_L
-           		,width_H
-           		,thick_L
-           		,thick_H
-           		,check_flag
-           		,pre_price
-           		,now_price
-           		,discount
-           		,discount_type
-           		,remark
-           		,stat
-           		,load_date
-            from product
-            where stat='N'
-            and product_type=#{product_type}
+            	a.product_ID
+           		,a.product_no
+           		,a.product_name
+           		,a.product_type
+           		,a.Texture
+           		,a.height
+           		,a.width
+           		,a.thick
+           		,a.height_L
+           		,a.height_H
+           		,a.width_L
+           		,a.width_H
+           		,a.thick_L
+           		,a.thick_H
+           		,a.check_flag
+           		,a.pre_price
+           		,a.now_price
+           		,a.discount
+           		,a.discount_type
+           		,a.remark
+           		,a.stat
+           		,a.load_date
+           		,b.image_ID
+            from product a
+            left join image b
+            on a.product_ID = b.product_ID
+            and b.main_flag = 'Y'
+            where a.stat='N'
+            and a.product_type=#{product_type}
         </select>
         
-        <select id="findProductByTexture"  resultType="List">  
+        <select id="findProductByTexture"  resultType="Map">  
         	select
-            	product_ID
-           		,product_no
-           		,product_name
-           		,product_type
-           		,Texture
-           		,height
-           		,width
-           		,thick
-           		,height_L
-           		,height_H
-           		,width_L
-           		,width_H
-           		,thick_L
-           		,thick_H
-           		,check_flag
-           		,pre_price
-           		,now_price
-           		,discount
-           		,discount_type
-           		,remark
-           		,stat
-           		,load_date
-            from product
-            where stat='N'
-            and Texture=#{Texture}
+            	a.product_ID
+           		,a.product_no
+           		,a.product_name
+           		,a.product_type
+           		,a.Texture
+           		,a.height
+           		,a.width
+           		,a.thick
+           		,a.height_L
+           		,a.height_H
+           		,a.width_L
+           		,a.width_H
+           		,a.thick_L
+           		,a.thick_H
+           		,a.check_flag
+           		,a.pre_price
+           		,a.now_price
+           		,a.discount
+           		,a.discount_type
+           		,a.remark
+           		,a.stat
+           		,a.load_date
+           		,b.image_ID
+            from product a
+            left join image b
+            on a.product_ID = b.product_ID
+            and b.main_flag = 'Y'
+            where a.stat='N'
+            and a.Texture=#{Texture}
         </select>
         
-        <select id="findProductByPrice"  resultType="List">  
+        <select id="findProductByPrice"  resultType="Map">  
         	select
-            	product_ID
-           		,product_no
-           		,product_name
-           		,product_type
-           		,Texture
-           		,height
-           		,width
-           		,thick
-           		,height_L
-           		,height_H
-           		,width_L
-           		,width_H
-           		,thick_L
-           		,thick_H
-           		,check_flag
-           		,pre_price
-           		,now_price
-           		,discount
-           		,discount_type
-           		,remark
-           		,stat
-           		,load_date
-            from product
-            where stat='N'
-            and now_price between #{min_price} and #{max_price}
+            	a.product_ID
+           		,a.product_no
+           		,a.product_name
+           		,a.product_type
+           		,a.Texture
+           		,a.height
+           		,a.width
+           		,a.thick
+           		,a.height_L
+           		,a.height_H
+           		,a.width_L
+           		,a.width_H
+           		,a.thick_L
+           		,a.thick_H
+           		,a.check_flag
+           		,a.pre_price
+           		,a.now_price
+           		,a.discount
+           		,a.discount_type
+           		,a.remark
+           		,a.stat
+           		,a.load_date
+           		,b.image_ID
+            from product a
+            left join image b
+            on a.product_ID = b.product_ID
+            and b.main_flag = 'Y'
+            where a.stat='N'
+            and a.now_price between #{min_price} and #{max_price}
         </select>
         
-        <select id="findProductsAnd"  resultType="List">  
+        <select id="findProductsAnd"  resultType="Map">  
         	select
-            	product_ID
-           		,product_no
-           		,product_name
-           		,product_type
-           		,Texture
-           		,height
-           		,width
-           		,thick
-           		,height_L
-           		,height_H
-           		,width_L
-           		,width_H
-           		,thick_L
-           		,thick_H
-           		,check_flag
-           		,pre_price
-           		,now_price
-           		,discount
-           		,discount_type
-           		,remark
-           		,stat
-           		,load_date
-            from product
-            where stat='N'
+            	a.product_ID
+           		,a.product_no
+           		,a.product_name
+           		,a.product_type
+           		,a.Texture
+           		,a.height
+           		,a.width
+           		,a.thick
+           		,a.height_L
+           		,a.height_H
+           		,a.width_L
+           		,a.width_H
+           		,a.thick_L
+           		,a.thick_H
+           		,a.check_flag
+           		,a.pre_price
+           		,a.now_price
+           		,a.discount
+           		,a.discount_type
+           		,a.remark
+           		,a.stat
+           		,a.load_date
+           		,b.image_ID
+            from product a
+            left join image b
+            on a.product_ID = b.product_ID
+            and b.main_flag = 'Y'
+            where a.stat='N'
             <if test="product_name != null"> 
-            	and product_name like CONCAT(CONCAT('%', #{product_name}),'%')
+            	and a.product_name like CONCAT(CONCAT('%', #{product_name}),'%')
             </if>
              <if test="product_type != null"> 
-            	and product_type like CONCAT(CONCAT('%', #{product_type}),'%')
+            	and a.product_type like CONCAT(CONCAT('%', #{product_type}),'%')
             </if>
              <if test="Texture != null"> 
-            	and Texture like CONCAT(CONCAT('%', #{Texture}),'%')
+            	and a.Texture like CONCAT(CONCAT('%', #{Texture}),'%')
             </if>
         </select>
         
-        <select id="findProductsOr"  resultType="List">  
+        <select id="findProductsOr"  resultType="Map">  
         	select
-            	product_ID
-           		,product_no
-           		,product_name
-           		,product_type
-           		,Texture
-           		,height
-           		,width
-           		,thick
-           		,height_L
-           		,height_H
-           		,width_L
-           		,width_H
-           		,thick_L
-           		,thick_H
-           		,check_flag
-           		,pre_price
-           		,now_price
-           		,discount
-           		,discount_type
-           		,remark
-           		,stat
-           		,load_date
-            from product
-            where stat='N'
+            	a.product_ID
+           		,a.product_no
+           		,a.product_name
+           		,a.product_type
+           		,a.Texture
+           		,a.height
+           		,a.width
+           		,a.thick
+           		,a.height_L
+           		,a.height_H
+           		,a.width_L
+           		,a.width_H
+           		,a.thick_L
+           		,a.thick_H
+           		,a.check_flag
+           		,a.pre_price
+           		,a.now_price
+           		,a.discount
+           		,a.discount_type
+           		,a.remark
+           		,a.stat
+           		,a.load_date
+           		,b.image_ID
+            from product a
+            left join image b
+            on a.product_ID = b.product_ID
+            and b.main_flag = 'Y'
+            where a.stat='N'
             <if test="product_name != null"> 
-            	or product_name like CONCAT(CONCAT('%', #{product_name}),'%')
+            	or a.product_name like CONCAT(CONCAT('%', #{product_name}),'%')
             </if>
              <if test="product_type != null"> 
-            	or product_type like CONCAT(CONCAT('%', #{product_type}),'%')
+            	or a.product_type like CONCAT(CONCAT('%', #{product_type}),'%')
             </if>
              <if test="Texture != null"> 
-            	or Texture like CONCAT(CONCAT('%', #{Texture}),'%')
+            	or a.Texture like CONCAT(CONCAT('%', #{Texture}),'%')
             </if>
         </select>
          

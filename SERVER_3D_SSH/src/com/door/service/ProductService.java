@@ -13,17 +13,29 @@ public interface ProductService {
 	/*
 	 * 精确查询
 	 */
-	public Product findProdut(Product product);
+	public Image findImage(String image_id);
+	/*
+	 * 精确查询
+	 */
+	public Image findMainImage(Product product);
+	/*
+	 * 精确查询
+	 */
+	public Map<String,Object> findProdutdetail(Product product);
+	/*
+	 * 精确查询
+	 */
+	public Map<String,Object> findProdut(Product product);
 	/*
 	 * 模糊查询
 	 * 类型，材质
 	 */
-	public List<Product> findProduts(Product product);
+	public List<Map<String,Object>> findProduts(Product product);
 	/*
 	 * 模糊查询
 	 * 关键字，价格
 	 */
-	public List<Product> findProdutLike(Map<String,String> map);
+	public List<Map<String,Object>> findProdutLike(Map<String,String> map);
 	/*
 	 * 模糊查询
 	 * 类型，材质

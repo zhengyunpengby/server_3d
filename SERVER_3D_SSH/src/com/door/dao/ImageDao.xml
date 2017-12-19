@@ -8,6 +8,7 @@
            		image_ID
             	,product_ID
             	,image_name
+            	,image_type
             	,main_flag
             	,image_data
             	,remark
@@ -16,6 +17,7 @@
            		#{image_ID}
             	,#{product_ID}
             	,#{image_name}
+            	,#{image_type}
             	,#{main_flag}
             	,#{image_data}
             	,#{remark}
@@ -28,6 +30,7 @@
            		image_ID
             	,product_ID
             	,image_name
+            	,image_type
             	,main_flag
             	,image_data
             	,remark
@@ -38,6 +41,7 @@
 		           #{image.image_ID}
 	            	,#{image.product_ID}
 	            	,#{image.image_name}
+	            	,#{image.image_type}
 	            	,#{image.main_flag}
 	            	,#{image.image_data}
 	            	,#{image.remark}
@@ -45,19 +49,32 @@
 	           )
            </foreach>
         </insert>  
-          
-        <select id="findImageMain"  resultType="Image">  
+        
+        <select id="findImage"  resultType="Image">  
             select
             	image_ID
             	,product_ID
             	,image_name
+            	,image_type
             	,main_flag
             	,image_data
             	,remark
             	,load_date
             from image
-            where stat = 'N'
-            and image_ID = 'Y'
+            where image_ID = #{image_ID}
+        </select>   
+        
+        <select id="findImageMain"  resultType="Image">  
+            select
+            	image_ID
+            	,product_ID
+            	,image_name
+            	,image_type
+            	,main_flag
+            	,remark
+            	,load_date
+            from image
+            where main_flag = 'Y'
             and product_ID = #{product_ID}
         </select>    
         
@@ -66,13 +83,12 @@
             	image_ID
             	,product_ID
             	,image_name
+            	,image_type
             	,main_flag
-            	,image_data
             	,remark
             	,load_date
             from image
-            where stat = 'N'
-            and product_ID = #{product_ID}
+            where product_ID = #{product_ID}
         </select>  
          
         <update id="updateImageMain" parameterType="Image">
@@ -81,7 +97,6 @@
         			product_ID = #{product_ID}
         			,image_name = #{image_name}
         			,main_flag = #{main_flag}
-        			,image_data = #{image_data}
         			,remark = #{remark}
         	where image_ID=#{image_ID}
         </update>

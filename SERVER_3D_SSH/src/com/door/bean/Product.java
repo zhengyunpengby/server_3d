@@ -288,5 +288,18 @@ public class Product implements Serializable{
 		this.load_date = load_date;
 	}
 
+
+
+	@Override
+	public String toString() {
+		return "Product [product_ID=" + product_ID + ", product_no=" + product_no + ", product_name=" + product_name
+				+ ", product_type=" + product_type + ", Texture=" + Texture + ", height=" + height + ", width=" + width
+				+ ", thick=" + thick + ", height_L=" + height_L + ", height_H=" + height_H + ", width_L=" + width_L
+				+ ", width_H=" + width_H + ", thick_L=" + thick_L + ", thick_H=" + thick_H + ", check_flag="
+				+ check_flag + ", pre_price=" + pre_price + ", now_price=" + now_price + ", discount=" + discount
+				+ ", discount_type=" + discount_type + ", remark=" + remark + ", stat=" + stat + ", load_date="
+				+ load_date + "]";
+	}
+
 	
 }

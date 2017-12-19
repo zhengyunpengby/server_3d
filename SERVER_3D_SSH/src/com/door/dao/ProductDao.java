@@ -15,23 +15,19 @@ public interface ProductDao {
 	 * 通过id查找产品(只有主图片main_flag=1)
 	 * now：只取产品，图片另取
 	 */
-	public Product findProductById(String product_ID);
-	/*
-	 * 通过id查找产品（所有图片）
-	 */
-	public Product findProductsById(String product_ID);
+	public Map<String,Object> findProductById(String product_ID);
 	/*
 	 * 通过产品编号查找产品
 	 */
-	public Product findProductByNo(String product_no);
+	public Map<String,Object> findProductByNo(String product_no);
 	/*
 	 * 通过产品名查找产品
 	 */
-	public Product findProductByName(String  product_name);
+	public Map<String,Object> findProductByName(String  product_name);
 	/*
 	 * 列出所有产品
 	 */
-	public List<Product> findProductAll();
+	public List<Map<String,Object>> findProductAll();
 	/*
 	 * 列出优先产品
 	 */
@@ -39,28 +35,28 @@ public interface ProductDao {
 	/*
 	 * 通过产品类型查找产品：功能
 	 */
-	public List<Product> findProductByType(String product_type);
+	public List<Map<String,Object>> findProductByType(String product_type);
 	/*
 	 * 通过产品材质查找产品：材料
 	 */
-	public List<Product> findProductByTexture(String Texture);
+	public List<Map<String,Object>> findProductByTexture(String Texture);
 	/*
 	 * 通过产品材质查找产品：材料
 	 * max_price,min_price
 	 */
-	public List<Product> findProductByPrice(Map<String,Double> map);
+	public List<Map<String,Object>> findProductByPrice(Map<String,Double> map);
 	/*
 	 * 通过产品多种特性筛选（同时满足多种筛选）
 	 */
-	public List<Product> findProductsAnd(Map<String,String> map);
+	public List<Map<String,Object>> findProductsAnd(Map<String,String> map);
 	/*
 	 * 通过产品多种特性筛选（满足其中一种即可）
 	 */
-	public List<Product> findProductsOr(Map<String,String> map );
+	public List<Map<String,Object>> findProductsOr(Map<String,String> map );
 	/*
 	 * 通过产品关键字
 	 */
-	public List<Product> findProductByKey(String key);
+	public List<Map<String,Object>> findProductByKey(String key);
 	
 	/*
 	 * 增加产品

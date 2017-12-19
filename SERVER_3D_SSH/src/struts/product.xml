@@ -9,7 +9,7 @@
 		<action name="upLoadProductImages" class="com.door.action.ProductAction" method="upLoadProductImages">  
 	         <result name="success">/admin-jsp/product/upSuccess.jsp</result>  
 	         <result name="error">/error.jsp</result>  
-	         <param name="maximumSize">1000000</param>  
+	         <param name="maximumSize">16000000</param>  
 	         <param name="allowedTypes">image/*</param>  
 	     </action> 
 	     
@@ -18,7 +18,20 @@
 	         <result name="error">/error.jsp</result>  
 	     </action>
 	     
+	     <action name="listProducts" class="com.door.action.ProductAction" method="listProducts">  
+	         <result name="success">/admin-jsp/product/listProduct.jsp</result>  
+	         <result name="error">/error.jsp</result>  
+	     </action>
+	     
 	     <action name="addImages" class="com.door.action.ProductAction" method="addImages">  
+	         <result name="success" type="chain">showProduct.action</result>  
+	         <result name="error">/error.jsp</result>  
+	     </action>
+	     
+	     <action name="showImage" class="com.door.action.ProductAction" method="showImage">
+	     </action>
+	     
+	     <action name="showProduct" class="com.door.action.ProductAction" method="showProduct">  
 	         <result name="success">/admin-jsp/product/showProduct.jsp</result>  
 	         <result name="error">/error.jsp</result>  
 	     </action>

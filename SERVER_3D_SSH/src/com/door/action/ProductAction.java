@@ -1,16 +1,20 @@
 package com.door.action;
 
-import java.io.ByteArrayOutputStream;  
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;   
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -48,16 +52,16 @@ public class ProductAction extends ActionSupport {
     private String allowedTypes;
     private String[] fileName;
     private Product product;
-    private List<Product> products;
+    List<Map<String,Object>> maps;
+    private Map<String,Object> map;
+    private String image_id;
     
     public String addProduct(){
     	product.setProduct_ID(CommonUtil.generateUUID());
     	product.setLoad_date(new Date());
+    	product.setStat("N");
     	int count = productService.addProduct(product, null);
     	if(count>0){
-    		request = ServletActionContext.getRequest();
-    		session = request.getSession();
-    		session.setAttribute("product", product);
     		return "success";
     	}else{
     		return "error";
@@ -72,10 +76,10 @@ public class ProductAction extends ActionSupport {
     	if(upload==null){
     		upload = new File[0];
     	}
+    	
+    	Image img = productService.findMainImage(product);
     	try {
-	    	for(int i=0;i<upload.length;i++){		
-	    		
-	    		
+	    	for(int i=0;i<upload.length;i++){			    		
 				inStream = new FileInputStream(upload[i]);
 				byteArrayOutputStream = new ByteArrayOutputStream();
 				byte[] data = new byte[1024];
@@ -91,10 +95,14 @@ public class ProductAction extends ActionSupport {
 				image.setImage_data(byteArrayOutputStream.toByteArray());
 				image.setLoad_date(new Date());
 				image.setImage_name(uploadFileName[i]);
+				image.setImage_type(uploadContentType[i]);
+				if(img==null&&i==0){
+					image.setMain_flag("Y");
+				}
 				
 				images.add(image);
     		}
-	    	System.out.println(images);
+	    	
 	    	count = productService.addImage(product.getProduct_ID(), images);
     	} catch (Exception e) {
 			e.printStackTrace();
@@ -148,12 +156,13 @@ public class ProductAction extends ActionSupport {
     				if(!f.exists()){
     					f.createNewFile();
     				}
-					fis = new  FileInputStream(upload[i]);
+					fis = new FileInputStream(upload[i]);
 					fos = new FileOutputStream(f);
 					
 					byte[] datas = new byte[1024];
 					int length = 0;
 					while((length=fis.read(datas))>0){
+						
 						fos.write(datas, 0, length);
 						fos.flush();
 					}
@@ -188,6 +197,41 @@ public class ProductAction extends ActionSupport {
     		return "success";
     	}   	
     	
+    }
+    
+    public String showProduct(){
+    	map = productService.findProdutdetail(product);
+    	return "success";
+    }
+    
+    public String listProducts(){
+    	maps = productService.findProduts(product);
+    	return "success";
+    }
+    
+    public void showImage(){
+    	//image_id
+    	Image image = productService.findImage(image_id);
+    	response = ServletActionContext.getResponse();
+    	ServletOutputStream pw = null;
+    	try {
+			pw = response.getOutputStream();
+			pw.write(image.getImage_data());
+			pw.flush();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	finally{
+    		if(pw!=null){
+    			try {
+					pw.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+    		}
+    	}
     }
 
 	public long getMaximumSize() {
@@ -246,12 +290,28 @@ public class ProductAction extends ActionSupport {
 		this.product = product;
 	}
 
-	public List<Product> getProducts() {
-		return products;
+	public List<Map<String, Object>> getMaps() {
+		return maps;
 	}
 
-	public void setProducts(List<Product> products) {
-		this.products = products;
+	public void setMaps(List<Map<String, Object>> maps) {
+		this.maps = maps;
+	}
+
+	public Map<String, Object> getMap() {
+		return map;
+	}
+
+	public void setMap(Map<String, Object> map) {
+		this.map = map;
+	}
+
+	public String getImage_id() {
+		return image_id;
+	}
+
+	public void setImage_id(String image_id) {
+		this.image_id = image_id;
 	}
 	
 }
